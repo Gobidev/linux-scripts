@@ -8,12 +8,20 @@ BOLD () { if [ "$1" != "" ]; then echo "$(BOLD)$(_COLOR "$1")"; else echo "\\033
 NORMAL () { if [ "$1" != "" ]; then echo "$(NORMAL)$(_COLOR "$1")"; else echo "\\033[22m"; fi; }
 RESET () { echo "\\033[0m"; }
 
-# Install zsh, if not already installed
+# Install zsh, if not installed
 if ! command -v zsh &> /dev/null; then
     echo "zsh is not installed, installing.."
-    sudo pacman -S zsh --noconfirm
-else
-    echo "zsh is already installed"
+    if [ "$PKMGR" = "pacman" ]; then
+        sudo pacman -S zsh --noconfirm
+    else
+        sudo "$PKMGR" install zsh -y
+    fi
+fi
+
+# Install pfetch, if not installed
+if ! command -v pfetch &> /dev/null; then
+    echo "pfetch is not installed, installing to /usr/local/bin/pfetch"
+    sudo wget -O /usr/local/bin/pfetch https://raw.githubusercontent.com/dylanaraps/pfetch/master/pfetch && sudo chmod +x /usr/local/bin/pfetch
 fi
 
 # Install oh-my-zsh
