@@ -8,7 +8,7 @@ BOLD () { if [ "$1" != "" ]; then echo "$(BOLD)$(_COLOR "$1")"; else echo "\\033
 NORMAL () { if [ "$1" != "" ]; then echo "$(NORMAL)$(_COLOR "$1")"; else echo "\\033[22m"; fi; }
 RESET () { echo "\\033[0m"; }
 
-# Install zsh, if not installed
+# Install zsh if not installed
 if ! command -v zsh &> /dev/null; then
     echo "zsh is not installed, installing.."
     if command -v pacman &> /dev/null; then
@@ -17,6 +17,18 @@ if ! command -v zsh &> /dev/null; then
         sudo apt install zsh -y
     elif command -v dnf &> /dev/null; then
         sudo dnf install zsh -y
+    fi
+fi
+
+# Install git if not installed
+if ! command -v git &> /dev/null; then
+    echo "git is not installed, installing.."
+    if command -v pacman &> /dev/null; then
+        sudo pacman -S git --noconfirm
+    elif command -v apt &> /dev/null; then
+        sudo apt install git -y
+    elif command -v dnf &> /dev/null; then
+        sudo dnf install git -y
     fi
 fi
 
