@@ -11,10 +11,12 @@ RESET () { echo "\\033[0m"; }
 # Install zsh, if not installed
 if ! command -v zsh &> /dev/null; then
     echo "zsh is not installed, installing.."
-    if [ "$PKMGR" = "pacman" ]; then
+    if command -v pacman &> /dev/null; then
         sudo pacman -S zsh --noconfirm
-    else
-        sudo "$PKMGR" install zsh -y
+    elif command -v apt &> /dev/null; then
+        sudo apt install zsh -y
+    elif command -v dnf &> /dev/null; then
+        sudo dnf install zsh -y
     fi
 fi
 
