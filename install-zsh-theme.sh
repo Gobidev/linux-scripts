@@ -38,7 +38,7 @@ if ! command -v pfetch &> /dev/null; then
     sudo wget -O /usr/local/bin/pfetch https://raw.githubusercontent.com/dylanaraps/pfetch/master/pfetch && sudo chmod +x /usr/local/bin/pfetch
 fi
 
-# Install oh-my-zsh
+# Check if wget or curl and git is installed
 wget --version > /dev/null || {
   curl --version > /dev/null || {
     echo -e "$(BOLD 1)You have neither wget nor curl installed.$(NORMAL) Please install at least one of them.$(RESET)"
