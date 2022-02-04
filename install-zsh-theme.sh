@@ -35,7 +35,7 @@ fi
 # Install pfetch, if not installed
 if ! command -v pfetch &> /dev/null; then
     echo "pfetch is not installed, installing to /usr/local/bin/pfetch"
-    sudo wget -O /usr/local/bin/pfetch https://raw.githubusercontent.com/Gobidev/pfetch/master/pfetch && sudo chmod +x /usr/local/bin/pfetch
+    sudo wget -O /usr/local/bin/pfetch https://raw.githubusercontent.com/dylanaraps/pfetch/master/pfetch && sudo chmod +x /usr/local/bin/pfetch
 fi
 
 # Check if wget or curl and git is installed
