@@ -60,7 +60,7 @@ echo -e "$(NORMAL 2)..done$(RESET)"
 
 # Install necessary plugins
 echo -e "$(NORMAL 6)Installing zsh-autosuggestions$(RESET)"
-git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions || exit 1
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions || exit 1
 echo -e "$(NORMAL 2)..done$(RESET)"
 
 echo -e "$(NORMAL 6)Installing zsh-syntax-highlighting$(RESET)"
